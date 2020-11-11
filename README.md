@@ -1,4 +1,4 @@
-# Weather WebApp with Datadog event creation. 
+# Weather WebApp with Datadog event creation 
 
 Dependencies:
   - Flask (Any version)
