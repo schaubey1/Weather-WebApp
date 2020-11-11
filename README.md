@@ -3,6 +3,7 @@
 Dependencies:
   - Flask (Any version)
   - Python (3.x or higher)
+  - Datadog Agent
   
 Usage:
   - Clone repository
