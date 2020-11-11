@@ -1,0 +1,39 @@
+h2 {
+    padding-left: 20px;
+}
+
+.weatherText {
+    color: #989898;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 24px;
+}
+
+#weatherForm {
+    background-color: #774aa4 !Important;
+    padding: 20px;
+}
+
+#weatherSubmit {
+    color: white;
+    background-color: #774aa4 !Important;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#weatherSubmit:hover {
+    cursor: pointer;
+}
+
+
+#weatherResults {
+    color: white;
+    background-color: #774aa4 !Important;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+}
