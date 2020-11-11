@@ -6,4 +6,5 @@ Dependencies:
   
 To use:
   - Clone repository
-  - python weatherapp.py
+  - Add your Datadog API/APP key
+  - Command: python weatherapp.py
