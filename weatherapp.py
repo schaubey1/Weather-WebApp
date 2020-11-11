@@ -14,7 +14,7 @@ options = {
 initialize(**options)
 
 
-class event_builder:
+class event_builder:    #Create event descriptions.
     title1 = "Temperature discrepancy"
     text1 = "The temperature difference between actual and feels like is greater than 5 degrees."
     tags1 = ['application:web', 'tag:discrepancy']
@@ -32,8 +32,8 @@ class event_builder:
     tags5 = ['application:web', 'tag:snowwarning']
 
 
-eb = event_builder()
-# https://github.com/DataDog/datadogpy
+eb = event_builder() #Initiate Class
+
 
 
 @app.route('/',methods=['GET','POST'])
@@ -44,7 +44,7 @@ def weather_dashboard():
                 zip_code="94102"
         else:
     		zip_code = request.form['zipCode']
-    api_key = get_api_key()
+    api_key = get_api_key()                        #Collect Weather output data
     data = get_weather_results(zip_code, api_key)
     temp = "{0:.2f}".format(data["main"]["temp"])
     feels_like = "{0:.2f}".format(data["main"]["feels_like"])
@@ -68,7 +68,7 @@ def event_trigger(zip_code):
     feel_check = float(feels_like)
     weather_check = str(weather)
     temp_diff = temp_check - feel_check
-    now = datetime.now()
+    now = datetime.now()                                            #Create Datadog event with time, location, temperatures.
     current_time = now.strftime("%H:%M:%S")
     location = " City: %s. Temperature is: %dF" % (location, temp_check)
     location1 = " Feels like: %sF" % (feel_check)
@@ -76,11 +76,11 @@ def event_trigger(zip_code):
     timeoutput = " @ %s" % (current_time)
     details = location+timeoutput
     print(location)
-    print(timeoutput)
-    if temp_diff > 6:
+    print(timeoutput)               
+    if temp_diff > 6:                               
         print("temp_diff greater than 5 degrees")
         text1 = eb.text1+details
-        api.Event.create(title=eb.title1, text=text1, tags=eb.tags1)
+        api.Event.create(title=eb.title1, text=text1, tags=eb.tags1) #Initiate Datadog Event creator
     if temp_check < 40:
         print("Freeze warning")
         text2 = eb.text2+details
